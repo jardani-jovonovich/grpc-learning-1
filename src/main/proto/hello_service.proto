@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpc";
+option java_outer_classname = "HelloServiceProto";
+
+package hello;
+
+//The greeting service definition
+service HelloService {
+  //sends a greeting
+  rpc sayHello (HelloRequest) returns (HelloReply) {}
+}
+
+//The request message containing the user's name
+message HelloRequest {
+  string name = 1;
+}
+
+//The response message containing the greetings
+message HelloReply {
+  string name = 1;
+  google.protobuf.TimeStamp last_updated = 2;
+}
